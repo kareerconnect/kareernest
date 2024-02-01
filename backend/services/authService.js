@@ -1,5 +1,6 @@
 const User = require('../models/user');
 const emailService = require('./emailService');
+const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 
 const signupUser = async (email, username, password) => {
