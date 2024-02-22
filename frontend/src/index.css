@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-	background: url("/kareernest.png");
+	background: url("/bgc.png");
 	background-repeat: no-repeat;
 	background-size: cover;
   background-position: center;

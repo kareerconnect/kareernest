@@ -1,8 +1,12 @@
 import React from 'react'
+import LogoutButton from '../../components/LogoutButton'
 
 const Home = () => {
   return (
-    <div>Home</div>
+    <>
+    <h1>Home Page</h1>
+    <LogoutButton/>
+    </>
   )
 }
 
