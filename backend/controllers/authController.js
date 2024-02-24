@@ -40,11 +40,20 @@ const login = async (req, res) => {
     try {
       const { email, password } = req.body;
       const user = await authService.loginUser(email, password);
+
+      if (!user.isVerified) {
+        throw new Error('User is not verified. Please verify your email first.');
+      }
+
       const token = authService.generateAuthToken(user);
       res.json({ message: 'User logged in successfully', token });
     } catch (error) {
+      if (error.message === 'User is not verified. Please verify your email first.'){
+        res.status(403).json({ error: error.message });
+      } else {
       console.error('Login error:', error);
       res.status(401).json({ error: 'Invalid credentials' });
+      }
     }
 };
 
