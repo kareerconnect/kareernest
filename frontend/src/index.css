@@ -2,9 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
+body.home-page {
+	background-color: aqua;
+}
+
+body.login-page {
 	background: url("bluepink.gif");
 	background-repeat: no-repeat;
 	background-size: cover;
-  background-position: center;
-}
+	background-position: center;
+  }

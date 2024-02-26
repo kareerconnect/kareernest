@@ -1,8 +1,17 @@
+import React, { useEffect } from 'react';
 import { Link } from "react-router-dom"
 import { useState } from "react";
 import useSignup from "../../hooks/useSignup.js";
 
 const SignUp = () => {
+
+  useEffect(() => {
+    document.body.className = 'login-page';
+    return () => {
+      document.body.className = '';
+    };
+  }, []);
+  
   const [inputs, setInputs] = useState({
     email: "",
     username: "",
