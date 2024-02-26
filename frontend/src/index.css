@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-	background: url("/bgc.png");
+	background: url("bluepink.gif");
 	background-repeat: no-repeat;
 	background-size: cover;
   background-position: center;
