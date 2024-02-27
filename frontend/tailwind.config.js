@@ -5,7 +5,14 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+      'login-bg': "url('blue.gif')",
+    },
+      backgroundColor: {
+        'default-color': "#0052E1y"
+      }
+  }
   },
   plugins: [require("daisyui")],
 }
