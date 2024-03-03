@@ -1,6 +1,10 @@
 import React, { useEffect } from 'react';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
+import Cards from '../../components/Cards';
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 
 const Home = () => {
   useEffect(() => {
@@ -9,36 +13,46 @@ const Home = () => {
       document.body.className = '';
     };
   }, []);
+  const data = [
+    {
+      name: `News1`,
+      news: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`
+    },{
+      name: `News2`,
+      news: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`
+    },{
+      name: `News3`,
+      news: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`
+    },{
+      name: `News4`,
+      news: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`
+    },{
+      name: `News5`,
+      news: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`
+    },{
+      name: `News6`,
+      news: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`
+    },
+  ];
 
   return (
-    <div className="flex flex-col min-h-screen w-screen bg-white">
+    <div className="flex flex-col min-h-screen w-screen">
       <Navbar />
 
-      <main className="flex-1 w-screen p-4">
-        <h1 className="text-3xl font-semibold mb-4">Home Page</h1>
-
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {/* Card 1 */}
-          <div className="bg-gray-100 p-4 rounded-md shadow-md">
-            <h2 className="text-xl font-semibold mb-2">Card 1</h2>
-            <p>This is the content of Card 1.</p>
+      <main className="flex-1 w-screen mb-1 p-2">
+        {/* <h1 className="text-3xl font-semibold mb-2">Home Page</h1> */}
+        <Cards data={data}/>
+        <div className='flex mt-20 h-[100px]'>
+        <div className='w-1/2 shadow-sm shadow-green-800 rounded-full mr-2'>
+          <p className=' text-center font-semibold text-3xl'> Upcoming Competitions</p>
+           <p className='text-center text-xl'> Details About upcoming Competitions will appear here.</p>
           </div>
-
-          {/* Card 2 */}
-          <div className="bg-gray-100 p-4 rounded-md shadow-md">
-            <h2 className="text-xl font-semibold mb-2">Card 2</h2>
-            <p>This is the content of Card 2.</p>
-          </div>
-
-          {/* Card 3 */}
-          <div className="bg-gray-100 p-4 rounded-md shadow-md">
-            <h2 className="text-xl font-semibold mb-2">Card 3</h2>
-            <p>This is the content of Card 3.</p>
+          <div className='w-1/2 shadow-sm shadow-green-800 rounded-full'>
+          <p className=' text-center font-semibold text-3xl'> Hackathons</p>
+           <p className='text-center text-xl'> Details About upcoming Hackathons will appear here.</p>
           </div>
         </div>
       </main>
-
       <Footer />
     </div>
   );
