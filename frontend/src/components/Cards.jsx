@@ -12,7 +12,7 @@ const Cards=(props)=> {
     slidesToScroll: 1
   };
   return (
-    <div className='w-3/4 m-auto'>
+    <div className='w-11/12 m-auto'>
       <div className="mt-5">
       <Slider {...settings}>
         {data.map((d) => (
