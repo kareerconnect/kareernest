@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
-const Home = () => {
+const About = () => {
     useEffect(() => {
         document.body.className = 'home-page';
         return () => {
@@ -57,4 +57,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+export default About;
