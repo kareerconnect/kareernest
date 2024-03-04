@@ -9,7 +9,9 @@ const Cards=(props)=> {
     infinite: true,
     speed: 500,
     slidesToShow: 3,
-    slidesToScroll: 1
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
   };
   return (
     <div className='w-11/12 m-auto'>
@@ -20,7 +22,7 @@ const Cards=(props)=> {
             <div className="flex flex-col items-center justify-center gap-4 p-4">
               <p className="text-xl font-semibold">{d.name}</p>
               <p className="text-center">{d.news}</p>
-              <button className='bg-indigo-500 text-white text-lg px-6 py-1 rounded-xl'>Read More</button>
+              <a href={d.url} target="_blank" rel="noopener noreferrer" className='bg-indigo-500 text-white text-lg px-6 py-1 rounded-xl'>Read More</a>
             </div>
           </div>
         ))}
