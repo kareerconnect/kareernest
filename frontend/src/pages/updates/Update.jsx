@@ -4,13 +4,14 @@ import Footer from '../../components/Footer';
 import News from '../../components/News';
 
 
-const Oppurtunity = () => {
+const Update = () => {
   useEffect(() => {
     document.body.className = 'home-page';
     return () => {
       document.body.className = '';
     };
   }, []);
+  
   const data = [
     {
       name: `News1`,
@@ -42,4 +43,4 @@ const Oppurtunity = () => {
   );
 };
 
-export default Oppurtunity;
+export default Update;
