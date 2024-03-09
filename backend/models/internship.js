@@ -52,6 +52,11 @@ const internshipSchema = new mongoose.Schema({
     otherInfo: {
         type: String,
     },
+    link: {
+        type: String,
+        require: true,
+
+    },
 
 });
 
