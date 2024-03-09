@@ -41,6 +41,10 @@ const jobSchema = new mongoose.Schema({
     otherInfo: {
         type: String,
     },
+    link: {
+        type: String,
+        require: true,
+    },
 });
 
 const Job = mongoose.model('Job', jobSchema);
