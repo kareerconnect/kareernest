@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import useLogout from '../hooks/useLogout';
 
 const Navbar = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const { loading, logout } = useLogout();
 
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
@@ -14,7 +16,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <div className="flex-shrink-0">
-              <Link to="/" className="text-white text-2xl font-bold">KareerNest</Link>
+              <NavLink to="/" className="text-white text-2xl font-bold">KareerNest</NavLink>
             </div>
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
@@ -22,16 +24,16 @@ const Navbar = () => {
                 {dropdownOpen && (
                   <div className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
                     <div className="py-1">
-                      <Link to="/opportunity/jobs" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Jobs</Link>
-                      <Link to="/opportunity/internships" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Internships</Link>
-                      <Link to="/opportunity/hackathons" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Hackathons</Link>
-                      <Link to="/opportunity/competitions" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Competitions</Link>
+                      <NavLink to="/opportunity/jobs" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Jobs</NavLink>
+                      <NavLink to="/opportunity/internships" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Internships</NavLink>
+                      <NavLink to="/opportunity/hackathons" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Hackathons</NavLink>
+                      <NavLink to="/opportunity/competitions" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Competitions</NavLink>
                     </div>
                   </div>
                 )}
-                <Link to="/update" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Tech Updates</Link>
-                <Link to="/blogs" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Blogs</Link>
-                <Link to="/about" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">About Us</Link>
+                <NavLink to="/update" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Tech Updates</NavLink>
+                <NavLink to="/blogs" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Blogs</NavLink>
+                <NavLink to="/about" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">About Us</NavLink>
               </div>
             </div>
           </div>
@@ -49,18 +51,19 @@ const Navbar = () => {
               </svg>
             </button>
           </div>
+          <button onClick={logout} className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Logout</button>
         </div>
       </div>
 
       <div className="md:hidden" id="mobile-menu">
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-          <Link to="/opportunity/jobs" className="block px-3 py-2 rounded-md text-base font-medium text-white bg-gray-900">Jobs</Link>
-          <Link to="/opportunity/internships" className="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">Internships</Link>
-          <Link to="/opportunity/hackathons" className="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">Hackathons</Link>
-          <Link to="/opportunity/competitions" className="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">Competitions</Link>
-          <Link to="/update" className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700">Tech Updates</Link>
-          <Link to="/blogs" className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700">Blogs</Link>
-          <Link to="/about" className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700">About Us</Link>
+          <NavLink to="/opportunity/jobs" className="block px-3 py-2 rounded-md text-base font-medium text-white bg-gray-900">Jobs</NavLink>
+          <NavLink to="/opportunity/internships" className="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">Internships</NavLink>
+          <NavLink to="/opportunity/hackathons" className="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">Hackathons</NavLink>
+          <NavLink to="/opportunity/competitions" className="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">Competitions</NavLink>
+          <NavLink to="/update" className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700">Tech Updates</NavLink>
+          <NavLink to="/blogs" className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700">Blogs</NavLink>
+          <NavLink to="/about" className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700">About Us</NavLink>
         </div>
       </div>
     </nav>

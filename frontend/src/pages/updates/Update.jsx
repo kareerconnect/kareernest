@@ -12,7 +12,7 @@ const Update = () => {
     const fetchNewsData = async () => {
       try {
         // Make the API call to fetch news data
-        const response = await fetch('apikey');
+        const response = await fetch('https://newsapi.org/v2/top-headlines?country=us&apiKey=bbed1c4157c64a4f8e0f8bb84a281682');
         const data = await response.json();
 
         setNewsData(data.articles);
