@@ -57,9 +57,24 @@ const login = async (req, res) => {
     }
 };
 
+const logout = async (req, res) => {
+  try {
+
+    // Clear the token
+    res.setHeader('Authorization', '');
+    
+    res.json({ message: 'User logged out successfully' });
+  } catch (error) {
+    console.error('Logout error:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+};
+
+
 module.exports = {
   signup,
   verify,
   resendOTP,
   login,
+  logout,
 };
