@@ -19,11 +19,12 @@ const useLogin = () => {
 
             const data = await res.json();
             if (data.error) {
+                setAuthUser(false);
                 throw new Error(data.error);
             }
 
             localStorage.setItem("kareernest-user", JSON.stringify(data));
-            setAuthUser(null);
+            setAuthUser(true);
         }   catch (error) {
             toast.error(error.message);
         }   finally{
