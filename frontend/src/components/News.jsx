@@ -16,7 +16,7 @@ const News = () => {
       try {
         // Replace the URL and API key with your News API endpoint and key
         const response = await fetch(
-          'https://newsapi.org/v2/everything?q=technology&from=2024-03-20&language=en&sortBy=publishedAt&apiKey=3d07392996c54397a43cb183376a98c7'
+          'https://newsapi.org/v2/everything?q=technology&from=2024-04-12&language=en&sortBy=publishedAt&apiKey=3d07392996c54397a43cb183376a98c7'
         );
   
         const data = await response.json();

@@ -4,9 +4,12 @@ import axios from 'axios';
 
 const JobList = () => {
   const [jobs, setJobs] = useState([]);
-
   useEffect(() => {
+    document.body.className = 'home-page';
     fetchJobs();
+    return () => {
+      document.body.className = '';
+    };
   }, []);
 
   const fetchJobs = async () => {
@@ -19,29 +22,29 @@ const JobList = () => {
   };
 
   return (
-    <Grid container spacing={3} justifyContent="center">
+    <Grid container spacing={3} justifyContent="center" margin={"auto"}>
       {jobs.length > 0 ? (
         jobs.map((job) => (
-          <Grid item key={job._id} xs={12} sm={6} md={4}>
-            <Card>
-              <CardContent>
-                <Typography variant="h6">{job.job_title}</Typography>
-                <Typography variant="subtitle1">{job.employer_name}</Typography>
-                <img src={job.employer_logo} alt={job.employer_name} style={{ maxWidth: '100%', maxHeight: '100px', marginBottom: '10px' }} />
-                <Typography variant="body2" color="textSecondary">{job.job_description.substring(0, 100)}</Typography>
-              </CardContent>
-              <CardActions>
-                <Button href={job.job_apply_link} target="_blank" size="small">Apply Now</Button>
-              </CardActions>
-            </Card>
-          </Grid>
+          <Card sx={{ maxWidth: 345, minHeight: 350, maxHeight: 350, margin: 2, backgroundColor: 'transparent' }} item key={job._id}>
+            <CardContent sx={{maxHeight:300,minHeight:300}}>
+              <div className='flex flex-row max-h-1/3'>
+              <Typography variant="h6" className='w-1/2'>{job.job_title}</Typography>
+              <img className='w-1/2 object-fill' src={job.employer_logo} alt={job.employer_name} style={{marginBottom: '10px' }} />
+              </div>
+              <Typography variant="subtitle1">{job.employer_name}</Typography>
+              <Typography variant="body2" color="textSecondary">{job.job_description.substring(0, 100)}</Typography>
+            </CardContent>
+            <CardActions>
+              <Button href={job.job_apply_link} target="_blank" size="small">Apply Now</Button>
+            </CardActions>
+          </Card>
         ))
       ) : (
         <Grid item>
           <Typography variant="body1">No jobs found</Typography>
         </Grid>
       )}
-    </Grid>
+    </Grid >
   );
 };
 
