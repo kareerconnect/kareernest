@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from "react-router-dom"
 import { useState } from "react";
-import useSignup from "../../hooks/useSignup.js";
+import useSignup from "../../hooks/useSignup";
 
 const SignUp = () => {
 
@@ -22,7 +22,8 @@ const SignUp = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await signup(inputs)
+    await signup(inputs);
+    navigate('/otp');
   };
   
   return (
